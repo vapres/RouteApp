@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:title="RouteAppOne"
+        app:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="24dp"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <ImageView
+                android:id="@+id/imgv_android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/android"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/android_course"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:cornerRadius="12dp"
+                app:layout_constraintTop_toBottomOf="@id/imgv_android" />
+
+            <ImageView
+                android:id="@+id/imgv_ios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ios"
+                app:layout_constraintTop_toBottomOf="@id/btn_android"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_ios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/ios_course"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imgv_ios"
+                app:cornerRadius="12dp" />
+
+            <ImageView
+                android:id="@+id/imgv_full_stack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toBottomOf="@id/btn_ios"
+                android:src="@drawable/fullstack" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_full_stack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/full_stack"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/imgv_full_stack"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+</LinearLayout>
