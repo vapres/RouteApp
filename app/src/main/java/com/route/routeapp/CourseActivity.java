@@ -15,38 +15,30 @@ public class CourseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+        ImageView imgView = findViewById(R.id.imgv_course);
+        TextView txtView = findViewById(R.id.tv_course_details);
+
         Intent intent = getIntent();
         if (intent != null) {
             if (intent.hasExtra("course_android")) {
                 CourseDetails course = intent.getParcelableExtra("course_android");
                 imgRes = course.getImageResource();
                 courseDetails = course.getCourseDetails();
-
-                ImageView imgView = findViewById(R.id.imgv_course);
                 imgView.setImageResource(imgRes);
-                TextView txtView = findViewById(R.id.tv_course_details);
                 txtView.setText(courseDetails);
             } else if (intent.hasExtra("course_ios")) {
                 CourseDetails course = intent.getParcelableExtra("course_ios");
                 imgRes = course.getImageResource();
                 courseDetails = course.getCourseDetails();
-
-                ImageView imgView = findViewById(R.id.imgv_course);
                 imgView.setImageResource(imgRes);
-                TextView txtView = findViewById(R.id.tv_course_details);
                 txtView.setText(courseDetails);
             } else if (intent.hasExtra("course_full_stack")) {
                 CourseDetails course = intent.getParcelableExtra("course_full_stack");
                 imgRes = course.getImageResource();
                 courseDetails = course.getCourseDetails();
-
-                ImageView imgView = findViewById(R.id.imgv_course);
                 imgView.setImageResource(imgRes);
-                TextView txtView = findViewById(R.id.tv_course_details);
                 txtView.setText(courseDetails);
             }
-
-
         }
     }
 }

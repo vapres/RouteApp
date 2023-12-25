@@ -7,20 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
     Button onClickedAndroid;
     Button onClickedIOS;
     Button onClickedFullStack;
+    ArrayList<CourseDetails> coursesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        onClickedFullStack = findViewById(R.id.btn_full_stack);
-
         onClickedAndroid = findViewById(R.id.btn_android);
         onClickedIOS = findViewById(R.id.btn_ios);
-
+        onClickedFullStack = findViewById(R.id.btn_full_stack);
         onClickedAndroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,44 +44,84 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void startFullStackCourse() {
+    private void startAndroidCourse() {
         Intent intent = new Intent(HomeActivity.this, CourseActivity.class);
-        CourseDetails course_full_stack = new CourseDetails(R.drawable.fullstack, "•HTML\t\n" +
-                "•HTML 5 \n" +
-                "•CSS\n" +
-                "•CSS3\n" +
-                "•SASS\n" +
-                "•Bootstrap 4\n" +
-                "•JavaScript\n" +
-                "•Regular expressions\n" +
-                "•ECMAScript 6\n" +
-                "•JQuery\n" +
-                "•angular 7\n" +
-                "•fabric.js\n" +
-                "•AJAX\n" +
-                "•JSON\n" +
-                "•Hosting and domains\n" +
-                "•Freelancing tips and tricks\n" +
-                "•PHP\n" +
-                "•MYSQL\n" +
-                "•MYSQL advanced queries and triggers\n" +
-                "•OOP \n" +
-                "•Design Patterns\n" +
-                "•MVC\n" +
-                "•laravel \n" +
-                "•build Api , Api authentication\n" +
-                "•connect wordpress with laravel\n" +
-                "•build wordpress web service \n" +
-                "•agile\n" +
-                "•Scrum\n" +
-                "•Software development process");
-        intent.putExtra("course_full_stack", course_full_stack);
+        coursesList.add(new CourseDetails(R.drawable.android, "Part 1 ( Java SE)\n" +
+                "1. Introduction to Java Programming\n" +
+                "• Overview.\n" +
+                "• Compiler and JVM\n" +
+                "• Project Structure\n" +
+                "• Hello World Application\n" +
+                "• Variables and Data types\n" +
+                "• Operators\n" +
+                "• Conditional statements ( IF - Switch)\n" +
+                "• Loops ( For - While - Do While)\n" +
+                "2. Basics\n" +
+                "• nested loops\n" +
+                "• Strings\n" +
+                "• Arrays\n" +
+                "• functions\n" +
+                "3. Object Oriented Programming\n" +
+                "• Classes and Objects\n" +
+                "• Encapsulation and data hiding\n" +
+                "• Inheritance\n" +
+                "• Polymorphism\n" +
+                "• Abstraction (Abstract classes - Interfaces)\n" +
+                "4. Collections and Generics\n" +
+                "• Sets, Lists\n" +
+                "• Threading\n" +
+                "• Generics Class and MethodPart 2 (Android Development)\n" +
+                "1. Introduction to Android\n" +
+                "• Android OS\n" +
+                "• Android Versions\n" +
+                "• OS Architecture\n" +
+                "• Application Component\n" +
+                "• Android Studio and Gradle\n" +
+                "• Creating Hello World\n" +
+                "2. UI Components\n" +
+                "• Layouts(Constraints Layout- Linear Layout )\n" +
+                "• Using resources ( drawables, Strings colors, and Styles )\n" +
+                "3. UI Components II\n" +
+                "• Menu\n" +
+                "• Support Localization\n" +
+                "• Support Orientation\n" +
+                "4. Intents and Activities\n" +
+                "• Intents\n" +
+                "• Intent Filters\n" +
+                "5. Fragments\n" +
+                "• what is fragments\n" +
+                "• Fragment manager and transaction\n" +
+                "• tablayout, NavigationDrawer, BottomNavigation\n" +
+                "6. Dialogs• Alert Dialog\n" +
+                "• Display dialog with items\n" +
+                "• Custom dialogs (Dialog Fragment)\n" +
+                "7. Data Storage\n" +
+                "• Shared Preference\n" +
+                "• Room (Database Library) - from google Arch Components\n" +
+                "8. Threading and Services\n" +
+                "• Threading\n" +
+                "• Service and Intent Service\n" +
+                "9. Web services and APIs\n" +
+                "• what is JSON ?\n" +
+                "• how to make network calls and APIs\n" +
+                "• Consuming Web APIs\n" +
+                "• Using Retrofit and Gson Libraries\n" +
+                "• how to cache Apis\n" +
+                "• using Room and Retrofit Together\n" +
+                "• what is Repository Pattern?\n" +
+                "10. FireBase RealTime Database\n" +
+                "• how to deal with Realtime Database\n" +
+                "11. Notifications\n" +
+                "• Simple Notification\n" +
+                "• firebase to push Notifications\n" +
+                "• one signal push notifications SDK"));
+
+        intent.putExtra("course_android", coursesList.get(0));
         startActivity(intent);
     }
-
     private void startIOSCourse() {
         Intent intent = new Intent(HomeActivity.this, CourseActivity.class);
-        CourseDetails course_ios = new CourseDetails(R.drawable.ios, "OOP refreshment\n" +
+        coursesList.add(new CourseDetails(R.drawable.ios, "OOP refreshment\n" +
                 "• Introduction\n" +
                 "a. Installing OS X virtual machine\n" +
                 "b. Installing Xcode and the iOS SDK\n" +
@@ -151,84 +192,47 @@ public class HomeActivity extends AppCompatActivity {
                 "a. Creational: Singleton.\n" +
                 "b. Structural: MVC, Decorator, Adapter, Facade.\n" +
                 "c. Behavioral: Observer\n" +
-                "• Creating final project depends on attendees needs");
-        intent.putExtra("course_ios", course_ios);
+                "• Creating final project depends on attendees needs"));
+
+        intent.putExtra("course_ios", coursesList.get(1));
+        startActivity(intent);
+    }
+    private void startFullStackCourse() {
+        Intent intent = new Intent(HomeActivity.this, CourseActivity.class);
+        coursesList.add(new CourseDetails(R.drawable.fullstack, "•HTML\t\n" +
+                "•HTML 5 \n" +
+                "•CSS\n" +
+                "•CSS3\n" +
+                "•SASS\n" +
+                "•Bootstrap 4\n" +
+                "•JavaScript\n" +
+                "•Regular expressions\n" +
+                "•ECMAScript 6\n" +
+                "•JQuery\n" +
+                "•angular 7\n" +
+                "•fabric.js\n" +
+                "•AJAX\n" +
+                "•JSON\n" +
+                "•Hosting and domains\n" +
+                "•Freelancing tips and tricks\n" +
+                "•PHP\n" +
+                "•MYSQL\n" +
+                "•MYSQL advanced queries and triggers\n" +
+                "•OOP \n" +
+                "•Design Patterns\n" +
+                "•MVC\n" +
+                "•laravel \n" +
+                "•build Api , Api authentication\n" +
+                "•connect wordpress with laravel\n" +
+                "•build wordpress web service \n" +
+                "•agile\n" +
+                "•Scrum\n" +
+                "•Software development process"));
+
+        intent.putExtra("course_full_stack", coursesList.get(2));
         startActivity(intent);
     }
 
-    private void startAndroidCourse() {
-        Intent intent = new Intent(HomeActivity.this, CourseActivity.class);
-        CourseDetails course_android = new CourseDetails(R.drawable.android, "Part 1 ( Java SE)\n" +
-                "1. Introduction to Java Programming\n" +
-                "• Overview.\n" +
-                "• Compiler and JVM\n" +
-                "• Project Structure\n" +
-                "• Hello World Application\n" +
-                "• Variables and Data types\n" +
-                "• Operators\n" +
-                "• Conditional statements ( IF - Switch)\n" +
-                "• Loops ( For - While - Do While)\n" +
-                "2. Basics\n" +
-                "• nested loops\n" +
-                "• Strings\n" +
-                "• Arrays\n" +
-                "• functions\n" +
-                "3. Object Oriented Programming\n" +
-                "• Classes and Objects\n" +
-                "• Encapsulation and data hiding\n" +
-                "• Inheritance\n" +
-                "• Polymorphism\n" +
-                "• Abstraction (Abstract classes - Interfaces)\n" +
-                "4. Collections and Generics\n" +
-                "• Sets, Lists\n" +
-                "• Threading\n" +
-                "• Generics Class and MethodPart 2 (Android Development)\n" +
-                "1. Introduction to Android\n" +
-                "• Android OS\n" +
-                "• Android Versions\n" +
-                "• OS Architecture\n" +
-                "• Application Component\n" +
-                "• Android Studio and Gradle\n" +
-                "• Creating Hello World\n" +
-                "2. UI Components\n" +
-                "• Layouts(Constraints Layout- Linear Layout )\n" +
-                "• Using resources ( drawables, Strings colors, and Styles )\n" +
-                "3. UI Components II\n" +
-                "• Menu\n" +
-                "• Support Localization\n" +
-                "• Support Orientation\n" +
-                "4. Intents and Activities\n" +
-                "• Intents\n" +
-                "• Intent Filters\n" +
-                "5. Fragments\n" +
-                "• what is fragments\n" +
-                "• Fragment manager and transaction\n" +
-                "• tablayout, NavigationDrawer, BottomNavigation\n" +
-                "6. Dialogs• Alert Dialog\n" +
-                "• Display dialog with items\n" +
-                "• Custom dialogs (Dialog Fragment)\n" +
-                "7. Data Storage\n" +
-                "• Shared Preference\n" +
-                "• Room (Database Library) - from google Arch Components\n" +
-                "8. Threading and Services\n" +
-                "• Threading\n" +
-                "• Service and Intent Service\n" +
-                "9. Web services and APIs\n" +
-                "• what is JSON ?\n" +
-                "• how to make network calls and APIs\n" +
-                "• Consuming Web APIs\n" +
-                "• Using Retrofit and Gson Libraries\n" +
-                "• how to cache Apis\n" +
-                "• using Room and Retrofit Together\n" +
-                "• what is Repository Pattern?\n" +
-                "10. FireBase RealTime Database\n" +
-                "• how to deal with Realtime Database\n" +
-                "11. Notifications\n" +
-                "• Simple Notification\n" +
-                "• firebase to push Notifications\n" +
-                "• one signal push notifications SDK");
-        intent.putExtra("course_android", course_android);
-        startActivity(intent);
-    }
+
 
 }
