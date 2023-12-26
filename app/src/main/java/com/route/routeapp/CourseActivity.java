@@ -20,25 +20,12 @@ public class CourseActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            if (intent.hasExtra("course_android")) {
-                CourseDetails course = intent.getParcelableExtra("course_android");
-                imgRes = course.getImageResource();
-                courseDetails = course.getCourseDetails();
-                imgView.setImageResource(imgRes);
-                txtView.setText(courseDetails);
-            } else if (intent.hasExtra("course_ios")) {
-                CourseDetails course = intent.getParcelableExtra("course_ios");
-                imgRes = course.getImageResource();
-                courseDetails = course.getCourseDetails();
-                imgView.setImageResource(imgRes);
-                txtView.setText(courseDetails);
-            } else if (intent.hasExtra("course_full_stack")) {
-                CourseDetails course = intent.getParcelableExtra("course_full_stack");
-                imgRes = course.getImageResource();
-                courseDetails = course.getCourseDetails();
-                imgView.setImageResource(imgRes);
-                txtView.setText(courseDetails);
-            }
+            CourseDetails course = intent.getParcelableExtra("course");
+            imgRes = course.getImageResource();
+            courseDetails = course.getCourseDetails();
+            imgView.setImageResource(imgRes);
+            txtView.setText(courseDetails);
+
         }
     }
 }

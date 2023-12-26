@@ -116,7 +116,7 @@ public class HomeActivity extends AppCompatActivity {
                 "• firebase to push Notifications\n" +
                 "• one signal push notifications SDK"));
 
-        intent.putExtra("course_android", coursesList.get(0));
+        intent.putExtra("course", coursesList.get(0));
         startActivity(intent);
     }
     private void startIOSCourse() {
@@ -194,7 +194,7 @@ public class HomeActivity extends AppCompatActivity {
                 "c. Behavioral: Observer\n" +
                 "• Creating final project depends on attendees needs"));
 
-        intent.putExtra("course_ios", coursesList.get(1));
+        intent.putExtra("course", coursesList.get(1));
         startActivity(intent);
     }
     private void startFullStackCourse() {
@@ -229,7 +229,7 @@ public class HomeActivity extends AppCompatActivity {
                 "•Scrum\n" +
                 "•Software development process"));
 
-        intent.putExtra("course_full_stack", coursesList.get(2));
+        intent.putExtra("course", coursesList.get(2));
         startActivity(intent);
     }
 
